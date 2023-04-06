@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Alpinejs</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body>
+
+    <div x-data="{ counter: 0, showAlert(){alert('Hello Janzen!')}}">
+        <div x-data="{ pesan : 'Hello World' }">
+            <h2 x-text="pesan"></h2>
+        </div>
+
+        <button x-on:click="counter++">+</button>
+        <h2 x-text="counter"></h2>
+
+        <button x-on:click="showAlert()">Tampilkan Alert!</button>
+
+        <div x-data>
+
+        </div>
+
+        <br>
+
+        <button x-data="{ pesan: 'Hello World', showAlert() {alert(this.pesan)} }" x-on:click="showAlert()">Tampilkan Pesan</button>
+
+    </div>
+    
+</body>
+</html>

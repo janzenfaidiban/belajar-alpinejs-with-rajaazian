@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Alpinejs</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+
+    <div x-data="{ counter: 0, showAlert(){alert('Hello Janzen!')}}">
+        <div x-data="{ pesan : 'Hello World' }">
+            <h2 x-text="pesan"></h2>
+        </div>
+
+        <button x-on:click="counter++">+</button>
+        <h2 x-text="counter"></h2>
+
+        <button x-on:click="showAlert()">Tampilkan Alert!</button>
+
+        <div x-data>
+
+        </div>
+    </div>
+
+
+    <br>
+
+    <button x-data="{ pesan: 'Hello World', showAlert() {alert(this.pesan)} }" x-on:click="showAlert()">Tampilkan Pesan</button>
+
+    <br>
+    <hr>
+    <br>
+
+    <div x-data="{ message: 'Ini komponen alpine' }">
+
+        <!-- nilai dari x-init bisa berupa codingan JavaScript dan teks lainnya -->
+        <div x-init="console.log('Ini pesan dari x-init')"></div>
+
+    </div>
+
+    <div x-data="{ message2:  'Ini komponen alpine 2', init() { console.log ('Ini pesan dari attribut init di attribut x-data') } }"></div>
+
+    <div x-data="{ message3: 'ini komponen alpine 3' }">
+        <div x-init="$nextTick(() => { console.log('ini dieksekusi ketika komponen alpine sudah selesai dirender') })"></div>
+    </div>
+
+</body>
+
+</html>
